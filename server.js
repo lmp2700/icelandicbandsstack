@@ -1,9 +1,27 @@
-// This entire lab should be done in a git repo. Commit after every step or more. 
 // There should be at least 11 commits for this part.
+const express = require('express')
+const app = express();
+const mongoose = require('mongoose')
+port = 3000;
+const bodyParser = require('body-parser');
+require('./db/db');
+const methodOverride = require('method-override');
+require('./models/icelandicbands')
 
-// Come up with a model, that has at least two properties.
+const morgan = require('morgan');
+// const controller = require('')
 
-// Create an express app. Commit.
+const bandsController = require('./controllers/controller');
+
+// router.use('/controllers', controller)
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
+// router.use(morgan("short"))
+
+app.use('/bands', bandsController);
+
+app.listen(3000);
+
 // Create a route for create. Commit.
 // Have the form on new post to the create route. Commit.
 // Connect express to mongo. Commit.
