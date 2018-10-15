@@ -6,11 +6,9 @@ const Bands = require('../models/icelandicBands')
 // Create a route for create. Commit.
 // Have the form on new post to the create route. Commit.
 // Connect express to mongo. Commit.
-// Create the schema/model for your model. Commit.
 // In the create route, have mongoose create the model based on what is in req.body. Commit.
 // Create a page for index which displays all the models created by the app so far. Commit.
 // Have the create route redirect to the index page after the model has been created. Commit.
-// Create a show page. Commit.
 // Link to the show page for each model in the index page. Commit.
 
 
@@ -29,8 +27,6 @@ router.get('/new', (req, res, next) => {
     res.render('new.ejs')
 })
 
-// Create a route for create. Commit.
-// In the create route, have mongoose create the model based on what is in req.body. Commit.
 router.post('/', (req, res, next) => {
     console.log('create a band')
     Bands.create(req.body, (err, createdBand) => {
@@ -43,7 +39,6 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// Link to the show page for each model in the index page. Commit.
 router.get('/:id', (req, res, next) => {
     console.log('this is the show page')
     Bands.findById(req.params.id, (err, foundBands) => {
